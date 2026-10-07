@@ -67,26 +67,77 @@
 // console.log(lastLetter('abcd'));
 
 // Fizz-Buzz
-let answer = prompt('Enter number');
+// let answer = prompt('Enter number');
 
-const number = parseInt(answer);
+// const number = parseInt(answer);
 
-while (answer !== null && (isNaN(parseInt(answer)) || parseInt(answer) < 3)) {
-  answer = prompt('Must be number and greater than 3');
-}
+// while (answer !== null && (isNaN(parseInt(answer)) || parseInt(answer) < 3)) {
+//   answer = prompt('Must be number and greater than 3');
+// }
 
-function makeFizzBuzz(answer) {
-  for (let i = 1; i <= answer; i++) {
-    if (i % 3 === 0 && i % 5 === 0) {
-      console.log('FizzBuzz');
-    } else if (i % 3 === 0) {
-      console.log('Fizz');
-    } else if (i % 5 === 0) {
-      console.log('Buzz');
-    } else {
-      console.log(i);
-    }
-  }
-}
+// function makeFizzBuzz(answer) {
+//   for (let i = 1; i <= answer; i++) {
+//     if (i % 3 === 0 && i % 5 === 0) {
+//       console.log('FizzBuzz');
+//     } else if (i % 3 === 0) {
+//       console.log('Fizz');
+//     } else if (i % 5 === 0) {
+//       console.log('Buzz');
+//     } else {
+//       console.log(i);
+//     }
+//   }
+// }
 
-makeFizzBuzz(answer);
+// makeFizzBuzz(answer);
+
+// error test
+
+// console.log(z);
+// let z = 9;
+
+// const a = 5;
+// const b = 10;
+
+// function add() {
+//   return c;
+// }
+
+// function print() {
+//   add();
+// }
+
+// print();
+
+// function helloWorld() {
+//   console.log "Hello World!"
+// }
+
+const container = document.querySelector('#container');
+const p1Element = document.createElement('p');
+p1Element.style.color = 'red';
+p1Element.textContent = "Hey I'm red!";
+
+container.append(p1Element);
+
+const h3Element = document.createElement('h3');
+h3Element.style.color = 'blue';
+h3Element.textContent = "I'm a blue h3";
+
+container.append(h3Element);
+
+const divElement = document.createElement('div');
+divElement.setAttribute(
+  'style',
+  'border: solid 1px black; background-color: pink'
+);
+const h1Element = document.createElement('div');
+h1Element.textContent = "I'm in a div";
+
+divElement.append(h1Element);
+
+const p2Element = document.createElement('p');
+p2Element.textContent = 'ME TOO!';
+
+divElement.append(p2Element);
+container.append(divElement);

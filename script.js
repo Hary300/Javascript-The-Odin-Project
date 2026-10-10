@@ -113,31 +113,166 @@
 //   console.log "Hello World!"
 // }
 
-const container = document.querySelector('#container');
-const p1Element = document.createElement('p');
-p1Element.style.color = 'red';
-p1Element.textContent = "Hey I'm red!";
+// New Tast
 
-container.append(p1Element);
+// const container = document.querySelector('#container');
+// const p1Element = document.createElement('p');
+// p1Element.style.color = 'red';
+// p1Element.textContent = "Hey I'm red!";
 
-const h3Element = document.createElement('h3');
-h3Element.style.color = 'blue';
-h3Element.textContent = "I'm a blue h3";
+// container.append(p1Element);
 
-container.append(h3Element);
+// const h3Element = document.createElement('h3');
+// h3Element.style.color = 'blue';
+// h3Element.textContent = "I'm a blue h3";
 
-const divElement = document.createElement('div');
-divElement.setAttribute(
-  'style',
-  'border: solid 1px black; background-color: pink'
-);
-const h1Element = document.createElement('div');
-h1Element.textContent = "I'm in a div";
+// container.append(h3Element);
 
-divElement.append(h1Element);
+// const divElement = document.createElement('div');
+// divElement.setAttribute(
+//   'style',
+//   'border: solid 1px black; background-color: pink'
+// );
+// const h1Element = document.createElement('div');
+// h1Element.textContent = "I'm in a div";
 
-const p2Element = document.createElement('p');
-p2Element.textContent = 'ME TOO!';
+// divElement.append(h1Element);
 
-divElement.append(p2Element);
-container.append(divElement);
+// const p2Element = document.createElement('p');
+// p2Element.textContent = 'ME TOO!';
+
+// divElement.append(p2Element);
+// container.append(divElement);
+
+// New task
+// const numbers = [1, 2, 3, 4, 5, 6];
+
+// const total = numbers.reduce((acc, number) => {
+//   if (number % 2 === 0) {
+//     acc += number;
+//   }
+
+//   return acc;
+// }, 0);
+
+// console.log(total);
+
+// const words = ['hello', 'world', 'javascript'];
+// const sentence = words.reduce((acc, word, index) => {
+//   if (index === 0) {
+//     acc += word;
+//   } else {
+//     acc += ` ${word}`;
+//   }
+//   return acc;
+// }, '');
+
+// console.log(sentence);
+
+// const products = [
+//   { name: 'Laptop', price: 5000000 },
+//   { name: 'Mouse', price: 150000 },
+//   { name: 'Keyboard', price: 350000 },
+// ];
+
+// const totalPrice = products.reduce((acc, product) => acc + product.price, 0);
+
+// console.log(totalPrice);
+
+// const products = [
+//   { name: 'Laptop', category: 'electronics' },
+//   { name: 'Mouse', category: 'electronics' },
+//   { name: 'T-Shirt', category: 'clothing' },
+//   { name: 'Jacket', category: 'clothing' },
+//   { name: 'Keyboard', category: 'electronics' },
+// ];
+
+// const result = products.reduce((acc, product) => {
+//   if (!acc[product.category]) {
+//     acc[product.category] = 0;
+//   }
+
+//   acc[product.category] += 1;
+//   return acc;
+// }, {});
+
+// console.log(result);
+
+// const products = [
+//   { name: 'Laptop', price: 5000000 },
+//   { name: 'Mouse', price: 150000 },
+//   { name: 'Keyboard', price: 350000 },
+// ];
+
+// const mostExpensive = products.reduce((acc, product) => {
+//   if (acc.price < product.price) {
+//     acc = product;
+//   }
+//   return acc;
+// }, products[0]);
+
+// console.log(mostExpensive);
+
+// const products = [
+//   { name: 'Laptop', category: 'electronics', price: 5000000 },
+//   { name: 'Mouse', category: 'electronics', price: 150000 },
+//   { name: 'T-Shirt', category: 'clothing', price: 100000 },
+// ];
+
+// const total = products.reduce((acc, product) => {
+//   if (product.category === 'electronics') {
+//     acc += product.price;
+//   }
+//   return acc;
+// }, 0);
+
+// console.log(total);
+
+// const products = [
+//   { name: 'Laptop', category: 'electronics', price: 5000000 },
+//   { name: 'Mouse', category: 'electronics', price: 150000 },
+//   { name: 'T-Shirt', category: 'clothing', price: 100000 },
+//   { name: 'Keyboard', category: 'electronics', price: 350000 },
+// ];
+
+// const count = products.reduce((acc, product) => {
+//   if (product.price > 200000) {
+//     acc += 1;
+//   }
+//   return acc;
+// }, 0);
+
+// console.log(count);
+
+// const products = [
+//   { name: 'Laptop', price: 5000000 },
+//   { name: 'Mouse', price: 150000 },
+//   { name: 'Keyboard', price: 350000 },
+// ];
+
+// const priceByName = products.reduce((acc, product) => {
+//   if (!acc[product.name]) {
+//     acc[product.name] = 0;
+//   }
+//   acc[product.name] = product.price;
+//   return acc;
+// }, {});
+
+// console.log(priceByName);
+
+// let users = [
+//   { id: 'john', name: 'John Smith', age: 20 },
+//   { id: 'ann', name: 'Ann Smith', age: 24 },
+//   { id: 'pete', name: 'Pete Peterson', age: 31 },
+// ];
+
+// function groupById(users) {
+//   return users.reduce((acc, user) => {
+//     acc[user.id] = user;
+//     return acc;
+//   }, {});
+// }
+
+// let usersById = groupById(users);
+
+// console.log(usersById);

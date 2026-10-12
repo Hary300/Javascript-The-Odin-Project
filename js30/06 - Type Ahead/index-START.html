@@ -1,23 +1,99 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Type Ahead 👀</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="https://fav.farm/🔥" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Type Ahead 👀</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://fav.farm/🔥" />
+  </head>
+  <body>
+    <form class="search-form">
+      <input type="text" class="search" placeholder="City or State" />
+      <ul class="suggestions">
+        <li>Filter for a city</li>
+        <li>or a state</li>
+      </ul>
+    </form>
+    <script>
+      const inputElement = document.querySelector('.search');
+      const suggestionsElement = document.querySelector('.suggestions');
 
-  <form class="search-form">
-    <input type="text" class="search" placeholder="City or State">
-    <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
-    </ul>
-  </form>
-<script>
-const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+      const endpoint =
+        'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
 
-</script>
-</body>
+      const getData = async () => {
+        const res = await fetch(endpoint);
+        const data = await res.json();
+        return data;
+      };
+
+      const main = async () => {
+        const data = await getData();
+        console.log(data);
+        inputElement.addEventListener('input', () => {
+          const inputValue = inputElement.value;
+          const filteredData = data.filter(
+            (d) =>
+              d.city.toLowerCase().includes(inputValue.toLowerCase()) ||
+              d.state.toLowerCase().includes(inputValue.toLowerCase())
+          );
+
+          suggestionsElement.innerHTML = filteredData
+            .map((d) => {
+              const city = d.city;
+              const state = d.state;
+
+              const startCity = city
+                .toLowerCase()
+                .indexOf(inputValue.toLowerCase());
+              const endCity = startCity + inputValue.length;
+
+              let beforeCity = city;
+              let markCity = '';
+              let afterCity = '';
+
+              if (startCity !== -1) {
+                beforeCity = city.slice(0, startCity);
+                markCity = city.slice(startCity, endCity);
+                afterCity = city.slice(endCity);
+              }
+
+              const startState = state
+                .toLowerCase()
+                .indexOf(inputValue.toLowerCase());
+              console.log(startState, 'state');
+              const endState = startState + inputValue.length;
+
+              let beforeState = state;
+              let markState = '';
+              let afterState = '';
+
+              if (startState !== -1) {
+                beforeState = state.slice(0, startState);
+                markState = state.slice(startState, endState);
+                afterState = state.slice(endState);
+              }
+
+              return `
+      <li> 
+        <span>
+          ${beforeCity}
+            <span style="background-color: #ffc600">${markCity}</span> 
+          ${afterCity}, 
+          ${beforeState}
+            <span style="background-color: #ffc600">${markState}</span> 
+          ${afterState}
+        </span> 
+        
+        <span>${d.population}</span>
+      </li>`;
+            })
+            .join('');
+        });
+      };
+
+      getData();
+      main();
+    </script>
+  </body>
 </html>
